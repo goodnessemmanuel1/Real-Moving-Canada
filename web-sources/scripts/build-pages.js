@@ -8,8 +8,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const ROOT = path.join(__dirname, '..');
-const SRC = path.join(ROOT, 'web', 'pages');
-const OUT = path.join(ROOT, 'public');
+const SRC = path.join(ROOT, 'pages');
+const OUT = path.join(ROOT, '..', 'public');
 const VERSION = Date.now().toString(36);
 
 // ─── Icon sprite (24×24, stroke-based) ────────────────────────────────────

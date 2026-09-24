@@ -5,7 +5,10 @@ import { loadServices, loadAreas, loadReviews } from '../core/catalog.js';
 import { PROVINCES } from '../core/data.js';
 import { mountEstimate, applyRoute } from '../components/estimate.js';
 import { servicesBlock, tileMap, reviewCard, reviewInvite } from '../components/cards.js';
+import { initCarousels } from '../components/carousel.js';
 import { observeReveals } from '../site.js';
+
+initCarousels();
 
 // Hero route ticket → prefill the calculator and jump to it
 const ticket = $('#route-ticket');

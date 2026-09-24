@@ -55,10 +55,14 @@ export async function mountEstimate(el) {
 
   handleForm(form, async (data) => {
     sessionStorage.setItem(STORE_KEY, JSON.stringify(data));
-    return post('/public/estimate', data);
+    try {
+      return await post('/public/estimate', data);
+    } catch {
+      return { unavailable: true };
+    }
   }, {
-    onSuccess: ({ estimate, disclaimer }) => {
-      result.innerHTML = renderResult(estimate, disclaimer || DISCLAIMER);
+    onSuccess: (res) => {
+      result.innerHTML = res.unavailable ? unavailableResult() : renderResult(res.estimate, res.disclaimer || DISCLAIMER);
       result.classList.remove('updated'); void result.offsetWidth; result.classList.add('updated');
       if (window.innerWidth < 960) result.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
@@ -91,6 +95,17 @@ function emptyResult() {
     <p style="margin:0">Your estimate takes into account:</p>
     <ul><li>Distance between your locations</li><li>Property size and move type</li><li>Moving date and season</li><li>Packing, storage and other services</li></ul>
     <p class="disclaimer">${DISCLAIMER}</p>
+  </div>`;
+}
+
+function unavailableResult() {
+  return `<div class="ticket-head"><h3>Your estimate</h3><span class="tag">${icon('info')} Request a quote</span></div>
+  <div class="ticket-body estimate-empty">
+    <p style="margin:0 0 .6rem"><strong style="color:var(--ink)">We can’t calculate an instant price right now.</strong></p>
+    <p>Request a free quote instead — a member of our team will review your move details and follow up with a price.</p>
+    <div style="display:grid;gap:.6rem;margin-top:1.2rem">
+      <a class="btn btn-primary btn-block" href="/quote" data-to-quote>Request a free quote</a>
+    </div>
   </div>`;
 }
 

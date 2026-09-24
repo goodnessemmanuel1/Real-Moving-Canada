@@ -1,19 +1,21 @@
 import '../site.js';
-import { $, handleForm } from '../core/ui.js';
-import { post, currentCustomer } from '../core/api.js';
+import { $, esc, handleForm } from '../core/ui.js';
+import { submitToFormspree } from '../core/formspree.js';
 
 const form = $('#contact-form');
-currentCustomer().then((u) => {
-  if (!u) return;
-  form.name.value ||= u.fullName;
-  form.email.value ||= u.email;
-  form.phone.value ||= u.phone || '';
-});
 
-handleForm(form, (data) => post('/public/contact', data), {
-  onSuccess: (res) => {
+handleForm(form, (data) => submitToFormspree({
+  'Name': data.name,
+  'Email': data.email,
+  'Phone': data.phone || '—',
+  'Subject': data.subject,
+  'Message': data.message,
+  _replyto: data.email,
+  _gotcha: data._gotcha,
+}, { subject: `New contact message — ${data.subject}` }).then(() => data), {
+  onSuccess: (data) => {
     form.innerHTML = `<div class="success-panel"><div class="check-mark"><svg class="i"><use href="#i-check"></use></svg></div>
-      <h2>Message sent</h2><p class="lead">${res.message || 'Thanks — our team will reply by email.'}</p>
+      <h2>Message sent</h2><p class="lead">Thanks for contacting RealMovingCanada, ${esc(data.name.split(' ')[0])} — we’ve received your message and will reply to ${esc(data.email)} shortly.</p>
       <a class="btn btn-outline" href="/">Back to home</a></div>`;
     form.scrollIntoView({ behavior: 'smooth', block: 'center' });
   },

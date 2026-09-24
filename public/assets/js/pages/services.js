@@ -1,9 +1,30 @@
 import '../site.js';
 import { $, esc, icon, imageFallbacks } from '../core/ui.js';
 import { loadServices } from '../core/catalog.js';
+import { initCarousel } from '../components/carousel.js';
 import { observeReveals } from '../site.js';
 
 const paragraphs = (t) => String(t || '').split(/\n{2,}/).filter(Boolean).map((p) => `<p>${esc(p)}</p>`).join('');
+
+const PROCESS_STEPS = [
+  { title: 'Packing', desc: 'Fragile items, kitchenware and furniture are carefully wrapped and boxed before moving day.' },
+  { title: 'Loading', desc: 'Furniture and boxes are loaded securely into the truck, protected and organized for transport.' },
+  { title: 'Transportation', desc: 'Your belongings travel safely to their destination, with the route and timing agreed in advance.' },
+  { title: 'Unloading', desc: 'Boxes and furniture are carefully unloaded and brought into your new home or office.' },
+  { title: 'Final setup', desc: 'Furniture is placed where you want it, so you can start settling in right away.' },
+];
+
+const gallery = $('.process-gallery');
+if (gallery) {
+  const captionText = $('[data-process-text]', gallery);
+  initCarousel(gallery, {
+    onChange: (i) => {
+      const step = PROCESS_STEPS[i];
+      if (!step || !captionText) return;
+      captionText.innerHTML = `<span class="no">Step ${i + 1} of ${PROCESS_STEPS.length}</span><h3>${esc(step.title)}</h3><p>${esc(step.desc)}</p>`;
+    },
+  });
+}
 
 loadServices().then((list) => {
   $('[data-jump-links]').innerHTML = list.map((s) => `<a href="#${esc(s.slug)}">${esc(s.name)}</a>`).join('');

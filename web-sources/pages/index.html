@@ -1,13 +1,19 @@
 <!--meta {"title":"RealMovingCanada — Moving Across Canada, Made Simple","description":"Professional residential, commercial, local, long-distance and international moving services across Canada. Get a free instant moving estimate.","scripts":["pages/home"]}-->
-<section class="hero">
-  <div class="hero-media media"><img src="https://images.unsplash.com/photo-1758523670991-ee93bc48d81d?auto=format&fit=crop&w=2000&q=75" alt="" width="2000" height="1333" fetchpriority="high" data-hero-img></div>
+<section class="hero" data-carousel data-interval="6500">
+  <div class="hero-media carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide active"><img src="https://images.unsplash.com/photo-1758523670991-ee93bc48d81d?auto=format&fit=crop&w=2000&q=75" alt="A mover carrying a moving box into a new home for a waiting family" width="2000" height="1333" fetchpriority="high" data-hero-img></div>
+      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?auto=format&fit=crop&w=2000&q=75" alt="A moving truck being loaded with furniture outside a home" width="2000" height="1333" loading="lazy"></div>
+      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1663625318264-695d2d04f11a?auto=format&fit=crop&w=2000&q=75" alt="Neatly packed moving boxes ready for a move" width="2000" height="1333" loading="lazy"></div>
+    </div>
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1 data-setting="homepage.heroHeadline">Moving Across Canada, Made Simple.</h1>
       <p class="lead" data-setting="homepage.heroText">RealMovingCanada provides reliable residential, commercial, local, long-distance and international moving services — planned carefully and communicated clearly from your first estimate to your last box.</p>
       <div class="actions">
         <a class="btn btn-primary btn-lg" href="/quote">Get a Free Moving Quote</a>
-        <a class="btn btn-light btn-lg" href="/booking">Request a Booking</a>
+        <a class="btn btn-light btn-lg" href="/services">Explore Our Services</a>
       </div>
     </div>
 
@@ -28,6 +34,15 @@
         <button class="btn btn-dark btn-block" type="submit">See my estimate</button>
       </div>
     </form>
+  </div>
+  <div class="hero-controls">
+    <div class="wrap">
+      <div class="carousel-dots" data-carousel-dots></div>
+      <div class="arrows">
+        <button type="button" class="carousel-arrow prev" data-carousel-prev aria-label="Previous slide">{{icon:arrow-right}}</button>
+        <button type="button" class="carousel-arrow next" data-carousel-next aria-label="Next slide">{{icon:arrow-right}}</button>
+      </div>
+    </div>
   </div>
 </section>
 
