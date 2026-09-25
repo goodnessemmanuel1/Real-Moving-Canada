@@ -1,0 +1,11 @@
+{
+  "name": "real-moving-canada",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RealMovingCanada — Movers You Can Trust. Static marketing site with clean-URL routing.",
+  "scripts": {
+    "build:pages": "node web-sources/scripts/build-pages.js",
+    "start": "node server.js",
+    "dev": "npm run build:pages && npm start"
+  }
+}

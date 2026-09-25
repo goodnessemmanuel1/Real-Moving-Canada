@@ -1,0 +1,36 @@
+<!--meta {"title":"Contact Us — RealMovingCanada","description":"Contact RealMovingCanada about your move. Send us a message and our team will reply by email.","scripts":["pages/contact"]}-->
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">Home</a></li><li>Contact</li></ol>
+    <h1>Contact us</h1>
+    <p class="lead"><strong>Movers You Can Trust.</strong> Questions about a move or a quote? Send us a message and our team will get back to you.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap contact-layout">
+    <form class="card card-pad" id="contact-form" novalidate>
+      <h2 style="font-size:1.5rem">Send a message</h2>
+      <div class="form-alert" role="alert"></div>
+      <div class="form-grid" style="margin-top:1rem">
+        <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" autocomplete="name" required maxlength="100"></div>
+        <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+        <div class="field"><label for="c-phone">Phone <span class="opt">(optional)</span></label><input id="c-phone" name="phone" type="tel" autocomplete="tel" maxlength="30"></div>
+        <div class="field"><label for="c-subject">Subject</label><input id="c-subject" name="subject" required maxlength="150"></div>
+        <div class="field span-all"><label for="c-message">Message</label><textarea id="c-message" name="message" rows="6" required maxlength="5000"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="c-website">Leave this field empty</label><input id="c-website" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      </div>
+      <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:1.4rem">
+        <button class="btn btn-primary btn-lg" type="submit">Send message</button>
+        <span class="small muted">We use your details only to respond to your message.</span>
+      </div>
+    </form>
+    <aside class="contact-aside">
+      <div class="info-block"><h3>{{icon:phone}} Phone</h3><p data-contact="phone-link"><span class="placeholder-note">[Phone number]</span></p></div>
+      <div class="info-block"><h3>{{icon:mail}} Email</h3><p data-contact="email-link"><span class="placeholder-note">[Email address]</span></p></div>
+      <div class="info-block"><h3>{{icon:clock}} Business hours</h3><div data-contact="hours"><p><span class="placeholder-note">[Business hours]</span></p></div></div>
+      <div class="info-block"><h3>{{icon:map}} Service area</h3><p data-setting="contact.serviceAreaSummary">Residential, commercial and long-distance moves across Canada.</p><p style="margin-top:.5rem"><a class="link" href="/service-areas">View service areas</a></p></div>
+      <div class="info-block"><h3>{{icon:pin}} Postal code</h3><p>S7V 1R9</p></div>
+      <div class="info-block"><h3>{{icon:users}} Follow us</h3><div class="socials" data-socials data-socials-placeholder><span class="placeholder-note">[Social media links]</span></div></div>
+    </aside>
+  </div>
+</section>
