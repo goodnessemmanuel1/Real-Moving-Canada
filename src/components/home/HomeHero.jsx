@@ -6,6 +6,8 @@ import { MapleLeaf } from '../common/LogoMark.jsx';
 import { COMPANY } from '../../constants/company.js';
 import heroImage from '../../assets/images/hero-rmc.webp';
 import heroImageLarge from '../../assets/images/hero-rmc-2880.webp';
+import heroMobile from '../../assets/images/hero-rmc-mobile.webp';
+import heroMobileLarge from '../../assets/images/hero-rmc-mobile@2x.webp';
 
 const HERO_SERVICES = [['Residential', 'Commercial', 'Packing & Unpacking'], ['Junk Removal', 'Secure Storage']];
 
@@ -14,7 +16,11 @@ export default function HomeHero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-media">
-        <img src={heroImage} srcSet={`${heroImage} 1600w, ${heroImageLarge} 2880w`} sizes="(max-width: 960px) 180vw, 100vw" alt="Real Moving Canada movers carrying boxes from an RMC truck to a family’s new home" width="1600" height="585" fetchpriority="high" />
+        <picture>
+          {/* Phones get a tall crop: sky above, truck and crew below, so the photo sits behind the text. */}
+          <source media="(max-width: 600px)" srcSet={`${heroMobile} 780w, ${heroMobileLarge} 1170w`} sizes="100vw" />
+          <img src={heroImage} srcSet={`${heroImage} 1600w, ${heroImageLarge} 2880w`} sizes="100vw" alt="Real Moving Canada movers carrying boxes from an RMC truck to a family’s new home" width="1600" height="585" fetchpriority="high" />
+        </picture>
       </div>
       <div className="wrap wrap-wide hero-grid">
         <div className="hero-inner">
