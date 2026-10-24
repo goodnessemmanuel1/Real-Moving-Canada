@@ -5,9 +5,9 @@ built with **React 19 + Vite + React Router**. The design follows the supplied
 Real Moving Canada UI design (public website, quote flow, customer app desktop and
 mobile, and payment states).
 
-## Running it
+## Running it=
 
-```
+````
 npm install
 npm run dev       # development server at http://localhost:5173
 npm run build     # production build into dist/
