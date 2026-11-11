@@ -5,6 +5,7 @@ import Icon from '../../components/common/Icon.jsx';
 import WhyChoose from '../../components/home/WhyChoose.jsx';
 import ProcessSteps from '../../components/home/ProcessSteps.jsx';
 import ServiceAreasPanel from '../../components/home/ServiceAreasPanel.jsx';
+import HomeReviewForm from '../../components/home/HomeReviewForm.jsx';
 import HomeFaq from '../../components/home/HomeFaq.jsx';
 import SectionHeader from '../../components/common/SectionHeader.jsx';
 import Button from '../../components/common/Button.jsx';
@@ -56,6 +57,7 @@ export default function HomePage() {
       <WhyChoose />
       <ProcessSteps />
       <ServiceAreasPanel />
+      <HomeReviewForm />
       <HomeFaq />
     </>
   );
